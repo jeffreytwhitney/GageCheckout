@@ -1,0 +1,50 @@
+<html lang="en-US" dir="ltr" style="" class="geolocation history localstorage sessionstorage audio canvas video fileinput no-touchevents lf-responsive"><head>
+	<title>Gage Maintenance</title>
+
+<style>
+	#hide-me{
+		display:none;
+	}
+</style>
+<script
+  src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script>
+$(document).ready(function() {
+  $.getScript('https://code.jquery.com/ui/1.13.3/jquery-ui.min.js');
+  $.getScript('https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js');
+  $.getScript('https://cdnjs.cloudflare.com/ajax/libs/print-js/1.6.0/print.js');
+
+
+  $("head").append('<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/smoothness/jquery-ui.css">');
+  $("head").append('<link rel="stylesheet" href="https://pagination.js.org/dist/2.6.0/pagination.css">');
+  $("head").append('<link rel="stylesheet" href="https:/cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">');
+  $( "#show-dialog" ).on( "click", function() {  
+    $("#row-delete-confirm").dialog(); 
+  });
+
+}); 
+
+</script>
+
+
+
+<body style="">
+
+<div id="hide-me">
+	<div id="row-delete-confirm" class="modal fade" role="dialog" data-backdrop="static" tabindex="-1">
+		<div class="modal-dialog modal-sm">
+			<div class="modal-header">
+				<button aria-label="Close" title="Close" data-dismiss="modal" type="button"></button>
+				<div class="modal-title h4">Delete Row</div>
+			</div>
+			<div class="modal-body">
+				<div class="confirm-message"></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<button id="show-dialog">Show Dialog</button>
+
+
+</body>
