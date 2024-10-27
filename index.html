@@ -1,0 +1,83 @@
+<html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/print-js/1.6.0/print.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/print-js/1.6.0/print.css" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <style>
+
+        </style>
+        
+    </head>
+    <body>
+		<input type="text" id="ticket-id" value="1">
+		<div class="hidden">
+			<div id="print-area1" class="print-main">
+				<table>
+					<tr>
+						<th>Name</th>
+						<th>Age</th>
+						<th>Address</th>
+					</tr>
+					<tr>
+						<td>Si Thu</td>
+						<td>25</td>
+						<td>Yangon</td>
+					</tr>
+					<tr>
+						<td>WWK</td>
+						<td>24</td>
+						<td>Yangon</td>
+					</tr>
+
+				</table>
+			</div>
+			<div id="print-area2" class="print-main">
+				<table>
+					<tr>
+						<th>Name</th>
+						<th>Age</th>
+						<th>Address</th>
+					</tr>
+					<tr>
+						<td>Si Thu</td>
+						<td>25</td>
+						<td>Yangon</td>
+					</tr>
+					<tr>
+						<td>WWK</td>
+						<td>24</td>
+						<td>Yangon</td>
+					</tr>
+
+				</table>
+			</div>
+			<div id="print-area-both"></div>
+		</div>
+        <button id="btnPrint">Print</button>
+        <script>              
+                $(document).ready(function(){
+                    var afterPreviewClose = function(){
+                        window.location = "index2.html";
+                        
+                    };
+
+                    $("#btnPrint").on("click",function(){
+                        
+						$("#print-area-both").append($("#print-area1").html());
+						$("#print-area-both").append($("#print-area2").html());
+						
+						printJS({
+                            printable: 'print-area-both',
+                            type: 'html',
+                            onPrintDialogClose: afterPreviewClose, 
+                            css: 'styles/styles.css'});
+						
+						$('ticket-id').val("");	
+                    })
+                });
+                
+        </script>
+
+    </body>
+</html>
